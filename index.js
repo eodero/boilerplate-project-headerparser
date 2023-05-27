@@ -28,11 +28,11 @@ app.get('/api/whoami', function (req, res) {
   
   console.log(req.headers)
   let ipaddress = req.connection.remoteAddress;
-  let preferredLan = req.headers['accept-language'];
+  let language = req.headers['accept-language'];
   let software = req.headers['user-agent'];
   res.status(200).json({ 
      ipaddress,
-     preferredLan,
+     language,
      software
      
   });
