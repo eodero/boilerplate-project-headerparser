@@ -25,10 +25,11 @@ app.get('/api/hello', function (req, res) {
 });
 
 app.get('/api/whoami', function (req, res) {
+  
   console.log(req.headers)
-  let ipaddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  let ipaddress = req.connection.remoteAddress;
   let preferredLan = req.headers['accept-language'];
-  let software = req.headers['userAgent'];
+  let software = req.headers['user-agent'];
   res.status(200).json({ 
      ipaddress,
      preferredLan,
